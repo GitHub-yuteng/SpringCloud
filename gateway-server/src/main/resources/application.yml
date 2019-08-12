@@ -1,0 +1,29 @@
+server:
+  port: 8005
+spring:
+  application:
+    name: GATEWAY-SERVER
+  cloud:
+    gateway:
+      enabled: true
+      discovery:
+        locator:
+          enabled: true
+      routes:
+        - id: CONSUMER-USER
+          uri: lb://CONSUMER-USER
+          predicates:
+          - After=2019-01-20T17:42:47.789-07:00[America/Denver]
+
+eureka:
+  instance:
+    prefer-ip-address: true
+#    ip-address: 127.0.0.1
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+
+
+# 路由转发、权限控制、过滤、服务限流、黑白名单控制
+# 网关对外开放服务端口，微服务 内网
+# 异步非阻塞
