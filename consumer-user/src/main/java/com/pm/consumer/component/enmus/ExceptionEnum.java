@@ -18,7 +18,6 @@ public enum ExceptionEnum {
     TICKCT_UPDATE_FAILED(500, "票信息更新失败！"),
     GET_CITYS_FAIL(500,"获取城市失败"),
     USER_NOT_EXIST(500,"用户不存在"),
-
     ;
     private int code;
     private String msg;
